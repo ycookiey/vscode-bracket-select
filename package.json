@@ -1,16 +1,16 @@
 {
-    "name": "bracket-select2",
-    "displayName": "Bracket Select",
-    "description": "Quick select code between brackets, support for (), {}, [], '' and \"\"",
-    "version": "2.1.1",
-    "publisher": "jhasse",
+    "name": "custom-bracket-select",
+    "displayName": "Custom Bracket Select",
+    "description": "Quick select code between brackets, support for (), {}, [], '' and \"\" (Fork of jhasse.bracket-select2)",
+    "version": "2.2.0",
+    "publisher": "ycookiey",
     "icon": "icon.png",
     "engines": {
         "vscode": "^1.34.0"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/jhasse/vscode-bracket-select.git"
+        "url": "https://github.com/ycookiey/vscode-bracket-select.git"
     },
     "categories": [
         "Other"
@@ -19,8 +19,8 @@
         "onCommand:bracket-select.select",
         "onCommand:bracket-select.select-include"
     ],
-    "extensionKind":[
-      "ui"
+    "extensionKind": [
+        "ui"
     ],
     "main": "./out/src/bracketSelectMain",
     "contributes": {
@@ -47,7 +47,40 @@
                 "mac": "cmd+alt+a",
                 "when": "editorTextFocus"
             }
-        ]
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "Bracket Select Configuration",
+            "properties": {
+                "bracket-select.brackets": {
+                    "type": "array",
+                    "default": [
+                        [
+                            "(",
+                            ")"
+                        ],
+                        [
+                            "{",
+                            "}"
+                        ],
+                        [
+                            "[",
+                            "]"
+                        ]
+                    ],
+                    "description": "Array of bracket pairs to support."
+                },
+                "bracket-select.quotes": {
+                    "type": "array",
+                    "default": [
+                        "\"",
+                        "'",
+                        "`"
+                    ],
+                    "description": "Array of quote characters to support."
+                }
+            }
+        }
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",
